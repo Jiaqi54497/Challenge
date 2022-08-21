@@ -3,7 +3,7 @@ This directory contains iDASH22 Track 2 challenge dataset.
 Genotype Files:
 ---------------
 There are two files related to the genotypes:
-1) genotypes.txt.gz : This file contains the genotypes for the 20,390 variants for the 3,000 subjects. Each row corresponds to a variant. First 4 rows contains the chromosome, start, end, and variant identifier. Following the 4 columns, the genotypes for the 3,000 subjects are included. Each genotype takes a value of 0, 1, 2.
+1) genotypes.txt.gz : This file contains the genotypes for the 20,390 variants for the 3,000 subjects. Each row corresponds to a variant. First 4 columns contains the chromosome, start, end, and variant identifier. Following the 4 columns, the genotypes for the 3,000 subjects are included. Each genotype takes a value of 0, 1, 2.
 
 2) genotype_sample_ids.list: This file contains 3,000 rows, which are the subject identifiers, i.e., the columns of genotypes.txt.gz starting with column 5.
 
