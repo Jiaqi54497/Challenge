@@ -32,6 +32,7 @@ def train_data():
     data_d = np.delete(np.array(data_ll), -1)
     data_x = np.delete(data_d.reshape((N_GENE, N_SAMPLE+4)), range(4), axis=1)
     train_x = torch.tensor(data_x.T).float()
+    print(f"Genotype data processed: {train_x.shape}")
 
     phe = []
     for i in range(5):
@@ -47,6 +48,7 @@ def train_data():
     for yy in train_y:
         yy = (yy-yy.mean())/yy.std()
     train_y = torch.tensor(train_y.T).float()
+    print(f"Phenotype data processed: {train_x.shape}")
 
     return split_train_test(train_x, train_y, test_ratio=0.3)
 
