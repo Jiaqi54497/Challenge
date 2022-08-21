@@ -30,7 +30,7 @@ def train_data():
     print("Geno file read!")
     r_file = input_file.read()
     data_l = r_file.decode("utf-8")
-    r_file.close()
+    input_file.close()
     data_l=data_l.replace("\n", "\t").split("\t")
     print("Geno file split!")
     data_l = np.array(data_l)
