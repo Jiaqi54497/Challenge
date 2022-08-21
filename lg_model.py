@@ -23,14 +23,19 @@ def get_txt(file):
     return d_l
 
 def train_data():
+    print("Process Starts!")
     N_GENE = 20390
     N_SAMPLE = 3000
     input_file = gzip.open('CHALLENGE_DATA/genotypes.txt.gz','r')
+    print("Geno file read!")
     r_file = input_file.read()
     data_l = r_file.decode("utf-8")
     data_ll=data_l.replace("\n", "\t").split("\t")
+    print("Geno file split!")
     data_d = np.delete(np.array(data_ll), -1)
+    print("Geno file to array!")
     data_x = np.delete(data_d.reshape((N_GENE, N_SAMPLE+4)), range(4), axis=1)
+    print("Geno file reshaped!")
     train_x = torch.tensor(data_x.T).float()
     print(f"Genotype data processed: {train_x.shape}")
 
