@@ -32,7 +32,7 @@ def train_data():
     data_l = r_file.decode("utf-8")
     data_l=data_l.replace("\n", "\t").split("\t")
     print("Geno file split!")
-    data_l = np.delete(np.array(data_ll), -1)
+    data_l = np.delete(np.array(data_l), -1)
     print("Geno file to array!")
     data_l = np.delete(data_l.reshape((N_GENE, N_SAMPLE+4)), range(4), axis=1)
     print("Geno file reshaped!")
@@ -53,7 +53,7 @@ def train_data():
     for yy in train_y:
         yy = (yy-yy.mean())/yy.std()
     train_y = torch.tensor(train_y.T).float()
-    print(f"Phenotype data processed: {train_x.shape}")
+    print(f"Phenotype data processed: {data_l.shape}")
 
     return split_train_test(data_l, train_y, test_ratio=0.3)
 
