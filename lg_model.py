@@ -30,14 +30,14 @@ def train_data():
     print("Geno file read!")
     r_file = input_file.read()
     data_l = r_file.decode("utf-8")
-    data_ll=data_l.replace("\n", "\t").split("\t")
+    data_l=data_l.replace("\n", "\t").split("\t")
     print("Geno file split!")
-    data_d = np.delete(np.array(data_ll), -1)
+    data_l = np.delete(np.array(data_ll), -1)
     print("Geno file to array!")
-    data_x = np.delete(data_d.reshape((N_GENE, N_SAMPLE+4)), range(4), axis=1)
+    data_l = np.delete(data_l.reshape((N_GENE, N_SAMPLE+4)), range(4), axis=1)
     print("Geno file reshaped!")
-    train_x = torch.tensor(data_x.T).float()
-    print(f"Genotype data processed: {train_x.shape}")
+    data_l = torch.tensor(data_l.T).float()
+    print(f"Genotype data processed: {data_l.shape}")
 
     phe = []
     for i in range(5):
@@ -55,7 +55,7 @@ def train_data():
     train_y = torch.tensor(train_y.T).float()
     print(f"Phenotype data processed: {train_x.shape}")
 
-    return split_train_test(train_x, train_y, test_ratio=0.3)
+    return split_train_test(data_l, train_y, test_ratio=0.3)
 
 x_train, y_train, x_test, y_test = train_data()
 
